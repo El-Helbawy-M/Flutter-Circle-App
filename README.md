@@ -2,15 +2,14 @@
 
 <a href="https://drive.google.com/drive/folders/1cNYEhrmMh0gdQUQr4UBof41_XoTgdHmF?usp=sharing">the screens</a>
 
-## Getting Started
+# Branching
+For making a new branch please let the task name be the branch name
+ex:
 
-This project is a starting point for a Flutter application.
+task name: theme_task
 
-A few resources to get you started if this is your first Flutter project:
+branch name: theme_task
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Warnings
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- don't ever never for ever push on the master or you will say good buy to your hand
