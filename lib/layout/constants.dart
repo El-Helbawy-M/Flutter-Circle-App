@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // 1- For anu variable you will need to follow this style:
 //      * Start the name with small (c)
 //      * Then write the name of the data type (ex: cString<variable name>)
-//      * At the end write the name od the variable like this (const String cStringName = "fatakat")
+//      * At the end write the name of the variable like this (const String cStringName = "fatakat")
 //      * the style : c<Data type name><variable name>
 // 2- Soon...
 //================================================================================================
@@ -42,3 +42,7 @@ const TextStyle cTextStyleSmallTitle = TextStyle(fontSize: 20, fontWeight: FontW
 
 // size: 15 , weight: normal , color: grey
 const TextStyle cTextStyleSubTitle = TextStyle(fontSize: 15, color: Colors.grey);
+
+    
+
+
