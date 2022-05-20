@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_circle/layout/screens/auth_screen.dart';
+import 'package:flutter_app_circle/layout/screens/tasks_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const SignUpScreen(),
+      home: const TasksScreen(),
     );
   }
 }

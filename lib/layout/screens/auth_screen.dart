@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_circle/layout/constants.dart';
+
+import '../widgets/defalut_button.dart';
+import '../widgets/default_form_field.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class SignUpScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: ListView(
+
             children: [
               const Text(
                 'Welcome to Flutter Circle',
@@ -33,7 +36,7 @@ class SignUpScreen extends StatelessWidget {
                 height: height * 0.08,
               ),
               //this function in constant file
-              defaultFormField(
+              DefaultFormField(
                   controller: nameController,
                   type: TextInputType.name,
                   validate: (value) {
@@ -47,7 +50,7 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 height: height * 0.05,
               ),
-              defaultFormField(
+              DefaultFormField(
                   controller: phoneController,
                   type: TextInputType.phone,
                   validate: (value) {
@@ -61,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 height: height * 0.05,
               ),
-              defaultFormField(
+              DefaultFormField(
                   controller: emailController,
                   type: TextInputType.emailAddress,
                   validate: (value) {
@@ -75,7 +78,7 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 height: height * 0.05,
               ),
-              defaultFormField(
+              DefaultFormField(
                   controller: passwordController,
                   type: TextInputType.text,
                   validate: (value) {
@@ -95,7 +98,7 @@ class SignUpScreen extends StatelessWidget {
 
               //this function in constant file
 
-              defaultButton(function: () {}, text: 'Register'),
+              DefaultButton(function: () {}, text: 'Register'),
               SizedBox(
                 height: height * 0.05,
               ),
