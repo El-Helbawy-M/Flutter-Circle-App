@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DefaultFormField extends StatelessWidget {
-  const DefaultFormField({Key? key,this.isClickable = true ,this.isPassword = false, required this.controller, required this.type, this.onSubmit, this.onChange, this.onTap, required this.validate, required this.label, required this.prefix, this.suffix, this.suffixPressed}) : super(key: key);
+  const DefaultFormField({Key? key, this.isClickable = true, this.isPassword = false, required this.controller, required this.type, this.onSubmit, this.onChange, this.onTap, required this.validate, required this.label, required this.prefix, this.suffix, this.suffixPressed}) : super(key: key);
   final TextEditingController controller;
   final TextInputType type;
   final ValueChanged? onSubmit;
@@ -38,7 +38,7 @@ class DefaultFormField extends StatelessWidget {
                 ),
               )
             : null,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+        border: const UnderlineInputBorder(),
       ),
     );
   }

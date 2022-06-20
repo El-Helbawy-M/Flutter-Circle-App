@@ -23,7 +23,7 @@ class DefaultButton extends StatelessWidget {
       height: 50.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
-          15,
+          10,
         ),
         color: background.withOpacity(.6),
       ),

@@ -1,0 +1,19 @@
+{
+    "flutter_circle_elcome": "Welcome to Flutter circle",
+    "flutter_circle_slogn": "Circle of Heroes",
+    "name":"Nmae",
+    "phone":"Phone",
+    "email":"Email",
+    "password":"Password",
+    "log_in_check":"You have an account?",
+    "log_out_check":"You don't have an acoount?",
+    "profile_complaints": "Complaints",
+    "profile_edit":"Edit Profile",
+    "profile_terms_conditions":"Terms and Conditions",
+    "log_out": "Log out",
+    "log_in":"Log in",
+    "sign_up":"Sign up",
+    "task":"Task",
+    "score_sessions":"Sessions",
+    "score_competitions":"Competitions"
+}

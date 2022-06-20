@@ -1,34 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_circle/layout/screens/auth_screen.dart';
 import 'package:flutter_app_circle/layout/screens/tasks_screen.dart';
+import 'package:flutter_app_circle/layout/tools/app_localizer.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'layout/screens/auth_screen.dart';
+
+late SharedPreferences pref;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  pref = await SharedPreferences.getInstance();
+  String? savedLgnCode = pref.getString("lgnCode");
+  runApp(MyApp(savedLgnCode));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  const MyApp(this.savedLgnCode, {Key? key}) : super(key: key);
+  final String? savedLgnCode;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const TasksScreen(),
+
+      // to tell the app what the components should follow the determined language
+      localizationsDelegates: const [
+        AppLocale.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+
+      // to tell the app what the language should support
+      supportedLocales: const [
+        //for English "en"
+        Locale("en", ""),
+        //for Arabic "ar"
+        Locale("ar", ""),
+      ],
+
+      // this is a callback, it's executed when the user open the app or change the localaization of the mobile
+      // what is it's jop?
+      // : it cheks if what is the current language of the mobile and return it for the app to follow it
+      // : it cheks too if the user specified any language he need even if it's not same as the mobile language is
+      locale: const Locale("ar", ""),
+      localeResolutionCallback: (currentLgn, supportedLgn) {
+        // if (widget.savedLgnCode != null) {
+        //   for (Locale locale in supportedLgn) {
+        //     if (widget.savedLgnCode == locale.languageCode) {
+        //       return locale;
+        //     }
+        //   }
+        // } else
+        if (currentLgn != null) {
+          for (Locale locale in supportedLgn) {
+            if (currentLgn.languageCode == locale.languageCode) {
+              pref.setString("lgnCode", currentLgn.languageCode);
+              return locale;
+            }
+          }
+        }
+        print(supportedLgn.first.languageCode);
+        return supportedLgn.first;
+      },
+      home: const SignUpScreen(),
     );
   }
 }
-
-

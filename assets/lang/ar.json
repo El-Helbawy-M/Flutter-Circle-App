@@ -1,0 +1,18 @@
+{   "flutter_circle_elcome":"اهلا بك في سيركل Flutter",
+    "flutter_circle_slogn": "سيركل الابطال",
+    "name":"الأسم",
+    "phone":"الهاتف",
+    "email":"البريد الألكتروني",
+    "password":"الرقم السري",
+    "profile_complaints":"الشكاوي",
+    "profile_edit":"تعديل الملف الشخصي",
+    "profile_terms_conditions": "الشروط والأحكام",
+    "log_out":"تسجيل خروج",
+    "log_in":"تسجيل الدخول",
+    "log_in_check": "تمتلك حساب بالفعل؟",
+    "log_out_check": "لا تمتلك حساب؟",
+    "sign_up":"تسجيل دخول",
+    "task":"مهمة",
+    "score_sessions": "دورات",
+    "score_competitions":"المسابقات"
+}
