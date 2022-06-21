@@ -42,11 +42,15 @@ class MyApp extends StatelessWidget {
         Locale("ar", ""),
       ],
 
+      // this line is just for testing
+      // locale: const Locale("ar", ""),
+
+
       // this is a callback, it's executed when the user open the app or change the localaization of the mobile
       // what is it's jop?
       // : it cheks if what is the current language of the mobile and return it for the app to follow it
       // : it cheks too if the user specified any language he need even if it's not same as the mobile language is
-      locale: const Locale("ar", ""),
+      
       localeResolutionCallback: (currentLgn, supportedLgn) {
         // if (widget.savedLgnCode != null) {
         //   for (Locale locale in supportedLgn) {
