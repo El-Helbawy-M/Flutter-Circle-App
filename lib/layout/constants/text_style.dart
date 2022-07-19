@@ -24,4 +24,7 @@ class AppTextStyles {
 
   // size: 15 , weight: normal , color: grey
   static const TextStyle cTextStyleSubTitle = TextStyle(fontSize: 15, color: AppColor.grey);
+
+  // size: 16 , weight: bold , color: blue
+  static const TextStyle cTextStyleBoldlTitle =TextStyle(fontSize: 16, color: AppColor.second,fontWeight: FontWeight.bold);
 }
