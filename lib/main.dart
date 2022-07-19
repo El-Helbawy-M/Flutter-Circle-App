@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'layout/screens/auth_screen.dart';
+import 'layout/screens/profile_screen.dart';
 
 late SharedPreferences pref;
 void main() async {
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
         print(supportedLgn.first.languageCode);
         return supportedLgn.first;
       },
-      home: const TasksScreen(),
+      home: const Profilescreen(),
     );
   }
 }
