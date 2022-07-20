@@ -13,69 +13,78 @@ class Profilescreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.main,
         elevation: 0,
-        actions: const [Icon(Icons.edit)],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () {},
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+        ],
         iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 10,
         ),
-        child: SingleChildScrollView(
-            child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          //mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const CircleAvatar(
-                  backgroundImage: AssetImage('assets/img/profile_Screen.png'),
-                  radius: 40,
+                  backgroundImage: AssetImage('assets/img/3mna.jpg'),
+                  radius: 45,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text("Ebrahim Shaaban",
                         style: AppTextStyles.cTextStyleTitle),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Text("Flutter", style: AppTextStyles.cTextStyleSubTitle),
                   ],
                 ),
               ],
             ),
-            const Profileitem("+21014582492", AppTextStyles.cTextStyleSubTitle,
-                Icon(Icons.phone), AppColor.grey),
-            const Profileitem(
+            const SizedBox(
+              height: 20,
+            ),
+            Profileitem("+21014582492", AppTextStyles.cTextStyleSubTitle,
+                const Icon(Icons.phone), AppColor.grey, () {}),
+            Profileitem(
                 "ebrahimsh2019@gmail.com",
                 AppTextStyles.cTextStyleSubTitle,
-                Icon(Icons.email_outlined),
-                AppColor.grey),
-            const SizedBox(
-              height: 80,
-            ),
-            const Profileitem("favorites", AppTextStyles.cTextStyleBoldlTitle,
-                Icon(Icons.favorite_border), AppColor.second),
-            const Profileitem("payments", AppTextStyles.cTextStyleBoldlTitle,
-                Icon(Icons.payments), AppColor.second),
-            const Profileitem(
-                "Tell your friend",
-                AppTextStyles.cTextStyleBoldlTitle,
-                Icon(Icons.people_alt_outlined),
-                AppColor.second),
-            const Profileitem("promotions", AppTextStyles.cTextStyleBoldlTitle,
-                Icon(Icons.bookmark_add_outlined), AppColor.second),
-            const Profileitem("settings", AppTextStyles.cTextStyleBoldlTitle,
-                Icon(Icons.settings), AppColor.second),
-            Divider(),
-            const Profileitem(
+                const Icon(Icons.email_outlined),
+                AppColor.grey,
+                () {}),
+            const Divider(thickness: 2, height: 50),
+            Profileitem("favorites", AppTextStyles.cTextStyleBoldlTitle,
+                const Icon(Icons.favorite_border), AppColor.second, () {}),
+            Profileitem("payments", AppTextStyles.cTextStyleBoldlTitle,
+                const Icon(Icons.payments), AppColor.second, () {}),
+            Profileitem("Tell your friend", AppTextStyles.cTextStyleBoldlTitle,
+                const Icon(Icons.people_alt_outlined), AppColor.second, () {}),
+            Profileitem("promotions", AppTextStyles.cTextStyleBoldlTitle,
+                const Icon(Icons.bookmark_add_outlined), AppColor.second, () {}),
+            Profileitem("settings", AppTextStyles.cTextStyleBoldlTitle,
+                const Icon(Icons.settings), AppColor.second, () {}),
+            const Divider(height: 30),
+            Profileitem(
                 "log out",
-                TextStyle(
+                const TextStyle(
                     fontSize: 16,
                     color: Colors.red,
                     fontWeight: FontWeight.bold),
-                Icon(Icons.logout),
-                Colors.red),
+                const Icon(Icons.logout),
+                Colors.red,
+                () {}),
           ],
-        )),
+        ),
       ),
     );
   }
