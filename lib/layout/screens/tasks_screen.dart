@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_circle/layout/screens/authScreen/auth_screen.dart';
 import 'package:flutter_app_circle/layout/tools/app_localizer.dart';
 import 'package:flutter_app_circle/layout/widgets/task_card.dart';
 
@@ -12,11 +14,14 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
+
+
   final tasks = <Task>[];
 
   @override
   void initState() {
     super.initState();
+
   }
 
   @override
@@ -40,6 +45,13 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>SignInScreen()));
+          }, icon: Icon(Icons.logout))
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView.separated(

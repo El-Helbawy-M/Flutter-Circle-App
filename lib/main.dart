@@ -1,22 +1,41 @@
+import 'package:bloc/bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_circle/layout/screens/tasks_screen.dart';
 import 'package:flutter_app_circle/layout/tools/app_localizer.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'layout/screens/auth_screen.dart';
+import 'bloc_observer.dart';
+import 'layout/screens/authScreen/auth_screen.dart';
 
 late SharedPreferences pref;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   pref = await SharedPreferences.getInstance();
   String? savedLgnCode = pref.getString("lgnCode");
-  runApp(MyApp(savedLgnCode));
+  Widget? widget;
+
+  if(savedLgnCode  !=null){
+    widget = TasksScreen();
+  }else{
+    widget = SignInScreen();
+  }
+
+  BlocOverrides.runZoned(
+        () {
+          runApp(MyApp( startWidget: widget,));
+    },
+    blocObserver: MyBlocObserver(),
+  );
+
+
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp(this.savedLgnCode, {Key? key}) : super(key: key);
-  final String? savedLgnCode;
+  const MyApp( {Key? key,  this.startWidget, }) : super(key: key);
+  final Widget? startWidget;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -69,7 +88,7 @@ class MyApp extends StatelessWidget {
         print(supportedLgn.first.languageCode);
         return supportedLgn.first;
       },
-      home: const TasksScreen(),
+      home: startWidget,
     );
   }
 }
