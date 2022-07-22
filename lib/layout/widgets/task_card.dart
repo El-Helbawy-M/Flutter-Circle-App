@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_circle/layout/screens/task_details_screen.dart';
+import 'package:flutter_app_circle/layout/tools/app_localizer.dart';
 import '../../data/models/task.dart';
 
 class TaskCard extends StatelessWidget {
-  final Task task;
-  const TaskCard(this.task, {Key? key}) : super(key: key);
+  final Task _task;
+  const TaskCard(this._task, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +15,17 @@ class TaskCard extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(9.0),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => TaskDetailsScreen(_task)));
+        },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
               Center(
                 child: Image.network(
-                  task.imageUrl,
+                  _task.imageUrl,
                   width: 64,
                   height: 64,
                 ),
@@ -30,7 +35,7 @@ class TaskCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    task.name,
+                    _task.name,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -38,7 +43,7 @@ class TaskCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10.0),
                   Text(
-                    "Deadline: ${task.deadline.toString()}",
+                    "${getLang(context, "deadline")}: ${_task.deadline.toString()}",
                     style: TextStyle(color: Colors.black.withOpacity(0.5)),
                   ),
                 ],

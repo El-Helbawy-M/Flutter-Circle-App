@@ -25,11 +25,15 @@ class _TasksScreenState extends State<TasksScreen> {
       List.generate(
         20,
         (index) => Task(
+          id: "task$index",
           name: "${getLang(context, "task")}",
-          imageUrl: "https://cdn-images-1.medium.com/max/1200/1*5-aoK8IBmXve5whBQM90GA.png",
+          imageUrl:
+              "https://cdn-images-1.medium.com/max/1200/1*5-aoK8IBmXve5whBQM90GA.png",
           deadline: DateTime.now().add(
             Duration(hours: index),
           ),
+          description: "You have to upload System32",
+          taskFileUrl: "https://google.com",
         ),
       ),
     );

@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
         print(supportedLgn.first.languageCode);
         return supportedLgn.first;
       },
-      home: const SignUpScreen(),
+      home: const TasksScreen(),
     );
   }
 }
